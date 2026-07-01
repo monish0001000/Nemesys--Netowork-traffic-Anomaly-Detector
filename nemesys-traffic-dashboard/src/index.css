@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+
+body {
+  background-color: #06080a;
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(57,255,143,0.06), transparent 40%),
+    radial-gradient(circle at 85% 100%, rgba(58,214,255,0.05), transparent 40%);
+  color: #d8e2e6;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #0b0f12; }
+::-webkit-scrollbar-thumb { background: #1c2329; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #2a333b; }
+
+.grid-overlay {
+  background-image: linear-gradient(rgba(57,255,143,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57,255,143,0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.text-glow { text-shadow: 0 0 12px currentColor; }
