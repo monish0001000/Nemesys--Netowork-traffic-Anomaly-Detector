@@ -74,9 +74,9 @@ def generate_telemetry(target_url):
             
             try:
                 session.post(endpoint, json=pkt, timeout=1.0)
-            except requests.RequestException:
-                # Silently ignore connection errors to avoid console spam if server goes down
-                pass
+            except requests.RequestException as e:
+                print(f"[!] Failed to send to {endpoint} - Check IP/Firewall ({e})")
+                time.sleep(2)
                 
             # Pace the packets
             time.sleep(random.uniform(0.01, 0.1))
@@ -114,8 +114,9 @@ def fallback_generator(session, endpoint, local_ip):
         
         try:
             session.post(endpoint, json=pkt, timeout=1.0)
-        except requests.RequestException:
-            pass
+        except requests.RequestException as e:
+            print(f"[!] Failed to send to {endpoint} - Check IP/Firewall ({e})")
+            time.sleep(2)
             
         time.sleep(random.uniform(0.01, 0.1))
 

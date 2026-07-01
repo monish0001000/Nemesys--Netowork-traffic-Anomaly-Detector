@@ -31,6 +31,7 @@ export default function PacketTable({ packets }) {
           <thead className="sticky top-0 bg-panel2 text-muted">
             <tr className="text-left">
               <th className="px-3 py-2 font-medium">TIME</th>
+              <th className="px-3 py-2 font-medium">NODE</th>
               <th className="px-3 py-2 font-medium">SRC</th>
               <th className="px-3 py-2 font-medium">DST</th>
               <th className="px-3 py-2 font-medium">PROTO</th>
@@ -42,6 +43,7 @@ export default function PacketTable({ packets }) {
             {rows.map((p) => (
               <tr key={p.id} className="border-t border-line/60 hover:bg-panel transition-colors">
                 <td className="px-3 py-1.5 text-muted">{new Date(p.timestamp).toLocaleTimeString('en-GB')}</td>
+                <td className="px-3 py-1.5 text-amber opacity-80">{p.node_id || 'local'}</td>
                 <td className="px-3 py-1.5 text-d8e2e6">{p.src_ip}:{p.src_port}</td>
                 <td className="px-3 py-1.5 text-d8e2e6">{p.dst_ip}:{p.dst_port}</td>
                 <td className="px-3 py-1.5 text-cyan">{p.proto}</td>

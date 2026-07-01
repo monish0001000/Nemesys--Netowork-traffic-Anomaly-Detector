@@ -42,7 +42,10 @@ export default function AnomalyFeed({ anomalies }) {
                     <span className={`font-mono text-[11px] tracking-wider font-semibold ${s.text}`}>{s.label}</span>
                     <span className="font-mono text-[10px] text-muted shrink-0">{timeAgo(a.timestamp)}</span>
                   </div>
-                  <p className="font-mono text-xs text-d8e2e6 mt-0.5 truncate">{a.reason.replaceAll('_', ' ')}</p>
+                  <p className="font-mono text-xs text-d8e2e6 mt-0.5 truncate flex items-center gap-2">
+                    <span className="px-1.5 py-0.5 bg-panel border border-line rounded text-[9px] text-amber">{a.node_id || 'local'}</span>
+                    {a.reason.replaceAll('_', ' ')}
+                  </p>
                   <p className="font-mono text-[11px] text-muted truncate">{a.src_ip} → {a.dst_ip} · score {a.score}</p>
                 </div>
                 <ChevronDown size={14} className={`text-muted shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
